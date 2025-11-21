@@ -137,15 +137,15 @@ The server logs every HTTP request with full headers and body content, so you ca
 
 ## Expected Okta Workflow
 
-**Step 1:** Okta searches for users (GET /Users) - finds none
-**Step 2:** Okta provisions users (POST /Users) - SUCCESS
-**Step 3:** Okta creates groups with empty members (POST /Groups) - SUCCESS
-**Step 4:** Okta tries to add members to groups (PATCH /Groups/{id}) - FAILURE (400)
-**Step 5:** Okta cries a little inside
+* **Step 1:** Okta searches for users (GET /Users) - finds none
+*  **Step 2:** Okta provisions users (POST /Users) - SUCCESS
+* **Step 3:** Okta creates groups with empty members (POST /Groups) - SUCCESS
+* **Step 4:** Okta tries to add members to groups (PATCH /Groups/{id}) - FAILURE (400)
+* **Step 5:** Okta cries a little inside
 
 If you test group renames:
-**Step 6:** Okta tries to rename a group (PATCH /Groups/{id}) - FAILURE (409)
-**Step 7:** Okta questions its life choices
+* **Step 6:** Okta tries to rename a group (PATCH /Groups/{id}) - FAILURE (409)
+* **Step 7:** Okta questions its life choices
 
 ## Is This Production Ready?
 
