@@ -121,7 +121,7 @@ The server uses:
 - **Base URL:** `/scim/v2`
 
 Configure Okta to use:
-- **SCIM Base URL:** `http://your-host:50001/scim/v2`
+- **SCIM Base URL:** `https://randomly-generated-words.trycloudflare.com/scim/v2`
 - **Auth:** Bearer token `SCIM_TOKEN`
 
 ## What You'll See
