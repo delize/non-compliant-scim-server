@@ -25,7 +25,7 @@ This server simulates two real-world broken SCIM behaviors that actually exist i
 
 **What it does:** Returns a 409 Conflict when you try to rename a group.
 
-**Why:** Microsoft's SCIM implementation has decided that group renames are just too complicated. Once you name a group, that name is carved in stone. Forever. Like a terrible tattoo you got in college.
+**Why:** Microsoft's SCIM implementation has decided that group renames are just too complicated. Once you name a group, that name is carved in stone. Forever. Like a terrible tattoo you got in college. Then Okta goes and deactivates the push group silently. We can't mimic Okta's behavior for the app exactly, but we can respond with an error.
 
 **The behavior:**
 - Try to change displayName? 409 Conflict.
@@ -53,7 +53,24 @@ The user store starts empty and accepts any email/username Okta wants to provisi
 - An Okta trial account (for testing)
 - A sense of humor about enterprise software
 
-### Build and Run
+### Option 1: Use the Pre-Built Image (Recommended)
+
+Why waste time building when it's already available?
+
+```bash
+# Pull the latest image from GitHub Container Registry
+docker pull ghcr.io/delize/non-compliant-scim-server:latest
+
+# Run the container
+docker run -d -p 50001:5000 --name scim-test ghcr.io/delize/non-compliant-scim-server:latest
+
+# Watch the chaos unfold
+docker logs -f scim-test
+```
+
+### Option 2: Build It Yourself (For the Control Freaks)
+
+If you don't trust pre-built images or just enjoy waiting for Docker builds:
 
 ```bash
 # Build the Docker image
@@ -61,7 +78,6 @@ docker build -t non-compliant-scim-server .
 
 # Run the container
 docker run -d -p 50001:5000 --name scim-test non-compliant-scim-server
-
 
 # Watch the chaos unfold
 docker logs -f scim-test
