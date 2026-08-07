@@ -1,5 +1,7 @@
 # Non-Compliant SCIM Server
 
+![](dalle_generated-non-compliant-scim-server.png)
+
 ## What Fresh Hell Is This?
 
 Welcome to the Non-Compliant SCIM Server, a lovingly crafted dumpster fire of a SCIM 2.0 implementation. This server is deliberately broken in very specific ways because, apparently, that's what we need to test real world scenarios that exist in Applications that can't code SCIM properly.
